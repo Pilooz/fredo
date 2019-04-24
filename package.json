@@ -5,16 +5,16 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.3.1",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "formidable": "^1.2.1",
     "fs": "^0.0.1-security",
     "ip": "^1.1.5",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "path": "^0.12.7",
-    "socket.io": "^2.2.0",
-    "bootstrap": "^4.3.1"
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {
