@@ -1,0 +1,9 @@
+<%- include('header', { data: data }) %>
+
+<h3>Aïe... Petite erreur !</h3>
+
+<h4><%= message %></h4>
+<h5><%= error.status %></h5>
+<pre><%= error.stack %></pre>
+
+<%- include('footer', { data: data }) %>

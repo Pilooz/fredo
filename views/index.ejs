@@ -1,0 +1,46 @@
+<%- include('header', {data: data}) %>
+<style>
+/* specific style for this page (and not for scenario mode) */
+
+#serviceMessage {
+  position: absolute;
+  z-index: 10;
+  display: block;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+
+  color:white;
+  font-family: verdana;
+  font-size: 2.5em; 
+  margin: 0;
+  padding: 20%;
+}
+
+</style>
+      <div class="page-header">
+
+      <div class="row">
+        <div class="col-md-12">
+          <a href="#" id="resetButton"></a>
+          <p>It Works</p>  
+	<div id="serviceMessage"></div>
+        </div>
+      </div>
+
+      </div>  
+
+<script>
+  $(document).ready(() => {
+  var socket = io();
+    socket.on("generated notification", notificationString => {
+      // show the notification
+      var notification = new Notification("Notification",{
+        title: "notificationString"
+      });
+    });
+  });
+</script>
+<%- include('footer', {data: data}) %>
