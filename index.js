@@ -1,6 +1,8 @@
 global.__basedir  = __dirname;
 var CONFIG        = {
-	server : 'http://localhost:3000'
+	server : 'http://localhost:8080',
+  data_dir : './data',
+  sav_dir : './data/sav'
 };
 
 var app           = require('express')();
@@ -16,6 +18,16 @@ var bodyParser    = require('body-parser');
 var path          = require('path');
 var formidable    = require('formidable'); // File upload
 var fs            = require('fs');
+
+// Databases
+var db_users       = require(CONFIG.data_dir + '/users.js');
+var db_bikes       = require(CONFIG.data_dir + '/bikes.js');
+var db_bookings    = require(CONFIG.data_dir + '/bookings.js');
+
+// ------------------------------------------------------------------------
+// Fonctions 
+// ------------------------------------------------------------------------
+const { write_file } = require("./lib/write_file");
 
 //------------------------------------------------------------------------
 // Init Socket to transmit Serial data to HTTP client
@@ -81,6 +93,14 @@ router.all('/*', function (req, res, next) {
 
 /* GET home page. */
 .get('/', function(req, res, next) {
+  res.render('index', { data: dataForTemplate });
+})
+
+/* Saving DBs. */
+.get('/savedb', function(req, res, next) {
+  write_file(CONFIG.data_dir, 'users.js', db_users, CONFIG.sav_dir);
+  write_file(CONFIG.data_dir, 'bikes.js', db_bikes, CONFIG.sav_dir);
+  write_file(CONFIG.data_dir, 'bookings.js', db_bookings, CONFIG.sav_dir);
   res.render('index', { data: dataForTemplate });
 });
 
