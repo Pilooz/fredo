@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <title>Accueil-App</title>
+    <title>Fredo</title>
     
 		<meta name="msapplication-TileColor" content="#774d3c">
 		<meta name="theme-color" content="#ffffff">
@@ -17,15 +17,260 @@
 	<script src="/js/jquery.min.js"></script>
  	<script src="/js/bootstrap.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/hammer.min.js"></script>
 
   <script>
 	  var socket = null;
 		$(document).ready(function(){
-      socket = io('<%= data.config.server %>'); // http://localhost:3000
+      socket = io('<%= data.config.server %>');
 		});
   </script>
+
+<style id="applicationStylesheet" type="text/css">
+ @font-face {
+  font-family: 'Poppins';
+  src: url(<%= data.config.server %>/fonts/Poppins-Light.ttf);
+}
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', serif;
+  }
+
+  a, a:hover, a:visited {
+    color:white;
+    text-decoration: none;
+  }
+
+  :root {
+    --web-view-ids: HP;
+  }
+  #HP * {
+    margin: 0;
+    padding: 0;
+  }
+  #HP {
+    position: absolute;
+    box-sizing: border-box;
+    background: #E5E5E5;
+    width: 375px;
+    height: 667px;
+    background-color: rgba(227,0,45,1);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    --web-view-name: HP;
+    --web-view-id: HP;
+    --web-enable-deep-linking: true;
+  }
+  #Groupe_3 {
+    opacity: 1;
+    position: absolute;
+    width: 216.761px;
+    height: 55.742px;
+    left: 79.031px;
+    top: 87.4px;
+    overflow: visible;
+  }
+  #Groupe_2 {
+    opacity: 1;
+    position: absolute;
+    width: 150.295px;
+    height: 55.319px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+  }
+  #Groupe_1 {
+    opacity: 1;
+    position: absolute;
+    width: 150.295px;
+    height: 55.319px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+  }
+  #Trac__2 {
+    opacity: 1;
+    fill: rgba(255,255,255,1);
+  }
+  .Trac__2 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 13.064px;
+    left: 29.086px;
+    width: 25.587px;
+    height: 41.664px;
+  }
+  #Trac__3 {
+    opacity: 1;
+    fill: rgba(255,255,255,1);
+  }
+  .Trac__3 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 12.867px;
+    left: 59.704px;
+    width: 41.412px;
+    height: 42.452px;
+  }
+  #Trac__4 {
+    opacity: 1;
+    fill: rgba(255,255,255,1);
+  }
+  .Trac__4 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 0px;
+    left: 106.738px;
+    width: 43.557px;
+    height: 55.319px;
+  }
+  #Trac__5 {
+    opacity: 1;
+    fill: rgba(255,255,255,1);
+  }
+  .Trac__5 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 0.191px;
+    left: 0px;
+    width: 24.864px;
+    height: 54.66px;
+  }
+  #Ellipse_1 {
+    opacity: 1;
+    fill: rgba(255,255,255,1);
+  }
+  .Ellipse_1 {
+    position: absolute;
+    overflow: visible;
+    width: 11.183px;
+    height: 11.183px;
+    left: 205.578px;
+    top: 44.559px;
+  }
+  #Trac__7 {
+    opacity: 1;
+    fill: rgba(255,255,255,1);
+  }
+  .Trac__7 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 12.063px;
+    left: 158.01px;
+    width: 42.893px;
+    height: 38.808px;
+  }
+  #location_de_v_lo_entre_particu {
+    opacity: 1;
+    position: absolute;
+    left: 75px;
+    top: 150.963px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 218px;
+    white-space: nowrap;
+    line-height: 19.200000762939453px;
+    margin-top: -3.1000003814697266px;
+    text-align: left;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    color: rgba(255,255,255,1);
+  }
+  #Rectangle_7 {
+    opacity: 1;
+    fill: transparent;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 5px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+  }
+  .Rectangle_7 {
+    position: absolute;
+    overflow: visible;
+    width: 221px;
+    height: 71px;
+    left: 75px;
+    top: 313px;
+  }
+  #JE_CHERCHE_UN_VELO {
+    opacity: 1;
+    position: absolute;
+    left: 106px;
+    top: 338px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 157px;
+    white-space: nowrap;
+    line-height: 17px;
+    margin-top: -1px;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(255,255,255,1);
+  }
+  #JE_LOUE_MON_VELO {
+    opacity: 1;
+    position: absolute;
+    left: 119px;
+    top: 418px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 139px;
+    white-space: nowrap;
+    line-height: 17px;
+    margin-top: -1px;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(255,255,255,1);
+  }
+  #DECONNEXION {
+    opacity: 1;
+    position: absolute;
+    left: 136px;
+    top: 584px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 105px;
+    white-space: nowrap;
+    line-height: 17px;
+    margin-top: -1px;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    color: rgba(255,255,255,1);
+  }
+</style>
 
   </head>
     <body>
     <!-- Begin page content -->
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> -->
+      <div id="HP">

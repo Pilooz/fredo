@@ -8,7 +8,7 @@ module.exports =
 	        "login" : "",
 	        "pwd" : "",
 	        "bikesize" : "",  // tiny, medium, tall
-	        "biketype" : ""   // ville, course vtt
+	        "biketype" : "",   // ville, course vtt
 	        "bike_id" : ""
 	    }
 	]

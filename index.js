@@ -46,6 +46,7 @@ io.on('connection', function(socket) {
 // HTTP Server configuration
 //------------------------------------------------------------------------
 server.listen( httpPort, '0.0.0.0', function( ) {
+  CONFIG.server = 'http://' + ip.address() + ':' + httpPort;
   console.log( '------------------------------------------------------------' );
   console.log( 'server Ip Address is %s', ip.address() );     
   console.log( 'it is listening at port %d', httpPort );
@@ -58,7 +59,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -67,6 +67,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/js', express.static(__dirname + '/node_modules/socket.io/dist')); // Socket.io
+app.use('/js', express.static(__dirname + '/node_modules/hammerjs')); // Hammer.js
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
 //-----------------------------------------------------------------------------
@@ -95,6 +96,18 @@ router.all('/*', function (req, res, next) {
 .get('/', function(req, res, next) {
   res.render('index', { data: dataForTemplate });
 })
+
+/* GET filter page. */
+.get('/filter', function(req, res, next) {
+  res.render('filter', { data: dataForTemplate });
+})
+
+/* GET home page. */
+.get('/bookmybike', function(req, res, next) {
+  res.render('bookmybike', { data: dataForTemplate });
+})
+
+
 
 /* Saving DBs. */
 .get('/savedb', function(req, res, next) {
