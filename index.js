@@ -135,19 +135,20 @@ router.all('/*', function (req, res, next) {
 
 
 
-
-
-/* GET home page. */
 .get('/lock', function(req, res, next) {
   lock();
   res.render('index', { data: dataForTemplate });
 })
 
-/* GET home page. */
 .get('/unlock', function(req, res, next) {
   unlock();
   res.render('index', { data: dataForTemplate });
 })
+
+.get('/feedbacklock', function(req, res, next) {
+  console.log(httpRequests.message);
+})
+
 
 /* Saving DBs. */
 .get('/savedb', function(req, res, next) {
@@ -156,20 +157,6 @@ router.all('/*', function (req, res, next) {
   write_file(CONFIG.data_dir, 'bookings.js', db_bookings, CONFIG.sav_dir);
   res.render('index', { data: dataForTemplate });
 });
-
-/* POST media page. */
-// .post('/media-upload', function(req, res, next) {
-//     var form = new formidable.IncomingForm();
-//     form.uploadDir = path.join(__dirname, CONFIG.app.mediaPath);
-//     form.keepExtensions = true; // keep original extension
-
-//     form.parse(req, function (err, fields, files) {
-//       // Let the media library do the rest of the job !
-//       mediaDB.newMedia(fields, files);
-//     });
-//   // Routing to index
-//   res.redirect('/');
-// })
 
 //-----------------------------------------------------------------------------
 // Application express
