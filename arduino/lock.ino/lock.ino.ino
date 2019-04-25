@@ -6,8 +6,8 @@
 
 #define SERVO_PIN 2
 #define GND_PIN 14
-const char* ssid = "Pilouphone";
-const char* password = "3r4sm369!";
+const char* ssid = "fredo";
+const char* password = "iotwifipass";
 
 ESP8266WebServer server(80);
 Servo servoLock;
@@ -24,25 +24,28 @@ void handleRoot() {
 
 void openLock() {
   Serial.println("Opening the lock");
-  //for (int pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+  servoLock.attach(SERVO_PIN);
+  //servoLock.write(180);              // tell servo to go to position in variable 'pos'
+  //delay(1000);
+  for (int pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
-    servoLock.attach(SERVO_PIN);
-    servoLock.write(180);              // tell servo to go to position in variable 'pos'
-    delay(1000);
-    servoLock.detach();
-  //}
-  server.send(200, "text/plain", "Opening the lock");
+    servoLock.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  servoLock.detach();
 };
 
 void closeLock() {
   Serial.println("Closing the lock");
-  //for (int pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
   servoLock.attach(SERVO_PIN);
-    servoLock.write(0);              // tell servo to go to position in variable 'pos'
-    delay(1000);                       // waits 15ms for the servo to reach the position
+
+   for (int pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    servoLock.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  //servoLock.write(0);              // tell servo to go to position in variable 'pos'
+  //delay(1000);                       // waits 15ms for the servo to reach the position
   servoLock.detach();
-  //}
-  server.send(200, "text/plain", "Closing the lock");
 };
 
 void handleNotFound() {
@@ -92,9 +95,15 @@ void setup(void) {
 
   server.on("/", handleRoot);
 
-  server.on("/on", openLock);
+  server.on("/on", []() {
+    openLock();
+    server.send(200, "text/plain", "Opening the lock");
+  });
 
-  server.on("/off", closeLock);
+  server.on("/off", []() {
+    closeLock();
+    server.send(200, "text/plain", "Opening the lock");
+  });
 
   server.onNotFound(handleNotFound);
 
@@ -105,6 +114,7 @@ void setup(void) {
   Serial.print("servo attached to pin #");
   Serial.println(SERVO_PIN);
 
+  closeLock();
 }
 
 void loop(void) {
