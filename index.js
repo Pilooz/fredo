@@ -2,7 +2,8 @@ global.__basedir  = __dirname;
 var CONFIG        = {
 	server : 'http://localhost:8080',
   data_dir : './data',
-  sav_dir : './data/sav'
+  sav_dir : './data/sav',
+  lock_url : 'http://192.168.27.100/'
 };
 
 var app           = require('express')();
@@ -18,6 +19,7 @@ var bodyParser    = require('body-parser');
 var path          = require('path');
 var formidable    = require('formidable'); // File upload
 var fs            = require('fs');
+const request     = require('request');
 
 // Databases
 var db_users       = require(CONFIG.data_dir + '/users.js');
@@ -28,6 +30,28 @@ var db_bookings    = require(CONFIG.data_dir + '/bookings.js');
 // Fonctions 
 // ------------------------------------------------------------------------
 const { write_file } = require("./lib/write_file");
+
+
+// Deverrouiller le cadenas
+function unlock() {
+  resquesting_lock("on");
+}
+
+// Verrouiller le Cadenas
+function lock() {
+  resquesting_lock("off");
+}
+
+function resquesting_lock(order) {
+  console.log("Requesting the lock at " + CONFIG.lock_url + order);
+  request(CONFIG.lock_url + order, { json: true }, (err, res, body) => {
+    if (err) { 
+      return console.log(err); 
+    }
+    console.log(body.url);
+    console.log(body.explanation);
+  });
+}
 
 //------------------------------------------------------------------------
 // Init Socket to transmit Serial data to HTTP client
@@ -108,6 +132,22 @@ router.all('/*', function (req, res, next) {
 })
 
 
+
+
+
+
+
+/* GET home page. */
+.get('/lock', function(req, res, next) {
+  lock();
+  res.render('index', { data: dataForTemplate });
+})
+
+/* GET home page. */
+.get('/unlock', function(req, res, next) {
+  unlock();
+  res.render('index', { data: dataForTemplate });
+})
 
 /* Saving DBs. */
 .get('/savedb', function(req, res, next) {
