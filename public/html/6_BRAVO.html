@@ -4,9 +4,24 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	
-<meta http-equiv="refresh" content="3;URL=7_TRAJET_EN_COURS.html">
+<!-- <meta http-equiv="refresh" content="10;URL=7_TRAJET_EN_COURS.html">
+ -->	
+ <script src="/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+	function goto7() {
+		location.href="/html/7_TRAJET_EN_COURS.html";
+	}
 	
+	$(document).ready(function(){
+		$.get( "/unlock", function( data ) {
+		setTimeout(2000, goto7);
+		});
+	});
+</script>
+
 <title>6-BRAVO</title>
+<link href="poppins.css" rel="stylesheet">
 <style id="applicationStylesheet" type="text/css">
 	body {
 		margin: 0;
@@ -50,7 +65,7 @@
 		opacity: 1;
 		position: absolute;
 		width: 194px;
-		height: 294.99px;
+		/*height: 294.99px;*/
 		left: 91px;
 		top: 31px;
 		overflow: visible;
@@ -70,7 +85,7 @@
 		font-family: Poppins;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 50px;
+		/*font-size: 50px;*/
 		color: rgba(255,255,255,1);
 	}
 	#Groupe_39 {
@@ -165,7 +180,8 @@
 	</svg>
 	<div id="Groupe_40">
 		<div id="Bravo___le_cadenas_du_v_lo__es">
-			<span style="">Bravo, <br/></span><span style="font-size:20px;">le cadenas du vélo <br/>est déverrouillé !</span>
+			<span style="font-size:50px;">Bravo,</span><br>
+			<span style="font-size:20px;">le cadenas du vélo <br/>est déverrouillé !</span>
 		</div>
 		<div id="Groupe_39">
 			<div id="Groupe_38">
