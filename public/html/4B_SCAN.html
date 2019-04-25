@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>4B-SCAN</title>
+<style id="applicationStylesheet" type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	:root {
+		--web-view-ids: ID4B_SCAN;
+	}
+	#ID4B_SCAN * {
+		margin: 0;
+		padding: 0;
+	}
+	#ID4B_SCAN {
+		position: absolute;
+		box-sizing: border-box;
+		background: #E5E5E5;
+		width: 375px;
+		height: 667px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		opacity: 1;
+		--web-view-name: 4B-SCAN;
+		--web-view-id: ID4B_SCAN;
+		--web-enable-deep-linking: true;
+	}
+	#Rectangle_3 {
+		opacity: 1;
+		fill: rgba(227,0,45,1);
+	}
+	.Rectangle_3 {
+		position: absolute;
+		overflow: visible;
+		width: 375px;
+		height: 71px;
+		left: 0px;
+		top: 0px;
+	}
+	#Ellipse_11 {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+		stroke: rgb(227, 0, 45);
+		stroke-width: 5px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_11 {
+		position: absolute;
+		overflow: visible;
+		width: 72px;
+		height: 72px;
+		left: 241px;
+		top: 470px;
+	}
+	#DEVERROUILLER_LE_VELO {
+		opacity: 1;
+		position: absolute;
+		left: 78px;
+		top: 24px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		width: 199px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 17px;
+		color: rgba(255,255,255,1);
+	}
+	#left_arrow {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+	}
+	.left_arrow {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 25px;
+		left: 26px;
+		width: 31.495px;
+		height: 22.141px;
+	}
+	#ab470ab59026e9dbd2b5929378c7a2 {
+		opacity: 1;
+		fill: url(#ab470ab59026e9dbd2b5929378c7a2_A9_Rectangle_36_pattern);
+		stroke: rgb(227, 0, 45);
+		stroke-width: 5px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.ab470ab59026e9dbd2b5929378c7a2 {
+		position: absolute;
+		overflow: visible;
+		width: 246px;
+		height: 246px;
+		left: 64px;
+		top: 180px;
+	}
+	#Scannez_le_QRCODE_du_v_lo_pour {
+		opacity: 1;
+		position: absolute;
+		left: 52px;
+		top: 92px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		width: 273px;
+		white-space: nowrap;
+		line-height: 28px;
+		margin-top: -4px;
+		text-align: center;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+	}
+	#Ellipse_8 {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+		stroke: rgb(227, 0, 45);
+		stroke-width: 5px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_8 {
+		position: absolute;
+		overflow: visible;
+		width: 72px;
+		height: 72px;
+		left: 64px;
+		top: 470px;
+	}
+	#ID12345 {
+		opacity: 1;
+		position: absolute;
+		left: 79px;
+		top: 496px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		width: 43px;
+		white-space: nowrap;
+		line-height: 17px;
+		margin-top: -1px;
+		text-align: center;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 15px;
+		color: rgba(0,0,0,1);
+	}
+	#Ellipse_9 {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+		stroke: rgb(227, 0, 45);
+		stroke-width: 5px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_9 {
+		position: absolute;
+		overflow: visible;
+		width: 72px;
+		height: 72px;
+		left: 238px;
+		top: 470px;
+	}
+	#torch {
+		opacity: 1;
+		position: absolute;
+		width: 30.591px;
+		height: 30.558px;
+		left: 260.629px;
+		top: 491.289px;
+		overflow: visible;
+	}
+	#Trac__47 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__47 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 2.988px;
+		left: 14.594px;
+		width: 12.976px;
+		height: 12.977px;
+	}
+	#Trac__48 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__48 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 6.876px;
+		left: 13.126px;
+		width: 10.556px;
+		height: 10.556px;
+	}
+	#Trac__49 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__49 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 12.297px;
+		left: 3.233px;
+		width: 15.028px;
+		height: 15.028px;
+	}
+	#Trac__50 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__50 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 22.193px;
+		left: 0px;
+		width: 8.365px;
+		height: 8.365px;
+	}
+	#Trac__51 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__51 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 12.421px;
+		left: 5.185px;
+		width: 4.645px;
+		height: 4.644px;
+	}
+	#Trac__52 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__52 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		left: 24.844px;
+		width: 5.714px;
+		height: 5.713px;
+	}
+	#Trac__53 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__53 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 0.009px;
+		left: 21.217px;
+		width: 1.786px;
+		height: 3.835px;
+	}
+	#Trac__54 {
+		opacity: 1;
+		fill: rgba(0,0,0,1);
+	}
+	.Trac__54 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 7.31px;
+		left: 26.532px;
+		width: 4.06px;
+		height: 1.847px;
+	}
+	#Rectangle_9 {
+		opacity: 1;
+		fill: rgba(255,186,0,1);
+	}
+	.Rectangle_9 {
+		position: absolute;
+		overflow: visible;
+		width: 334px;
+		height: 2px;
+		left: 20px;
+		top: 407px;
+	}
+</style>
+</head>
+<body>
+<div id="ID4B_SCAN">
+	<svg class="Rectangle_3">
+		<rect id="Rectangle_3" rx="0" ry="0" x="0" y="0" width="375" height="71">
+		</rect>
+	</svg>
+	<svg class="Ellipse_11">
+		<ellipse id="Ellipse_11" rx="36" ry="36" cx="36" cy="36">
+		</ellipse>
+	</svg>
+	<div id="DEVERROUILLER_LE_VELO">
+		<span>DEVERROUILLER LE VELO</span>
+	</div>
+	<svg class="left_arrow" viewBox="-0.001 4.676 31.495 22.141">
+		<path id="left_arrow" d="M 10.27299976348877 5.008999824523926 C 10.71700000762939 4.564999580383301 11.41599941253662 4.564999580383301 11.85999965667725 5.008999824523926 C 12.28899955749512 5.437999725341797 12.28899955749512 6.151999950408936 11.85999965667725 6.579999923706055 L 3.812999725341797 14.6269998550415 L 30.36700057983398 14.6269998550415 C 30.98600006103516 14.6269998550415 31.4940013885498 15.11899948120117 31.4940013885498 15.73799991607666 C 31.4940013885498 16.35700035095215 30.98600196838379 16.86499977111816 30.36700057983398 16.86499977111816 L 3.812999963760376 16.86499977111816 L 11.85999965667725 24.89699935913086 C 12.28899955749512 25.34099960327148 12.28899955749512 26.05599975585938 11.85999965667725 26.48399925231934 C 11.41599941253662 26.92799949645996 10.71700000762939 26.92799949645996 10.27299976348877 26.48399925231934 L 0.3210000991821289 16.5319995880127 C -0.1079998910427094 16.10299873352051 -0.1079998910427094 15.38899993896484 0.3210000991821289 14.96099948883057 L 10.27299976348877 5.008999824523926 Z">
+		</path>
+	</svg>
+	<svg class="ab470ab59026e9dbd2b5929378c7a2">
+		<pattern elementId="ab470ab59026e9dbd2b5929378c7a2_A9_Rectangle_36" id="ab470ab59026e9dbd2b5929378c7a2_A9_Rectangle_36_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="ab470ab59026e9dbd2b5929378c7a2_A9_Rectangle_36_pattern.png" xlink:href="ab470ab59026e9dbd2b5929378c7a2_A9_Rectangle_36_pattern.png"></image>
+		</pattern>
+		<rect id="ab470ab59026e9dbd2b5929378c7a2" rx="0" ry="0" x="0" y="0" width="246" height="246">
+		</rect>
+	</svg>
+	<div id="Scannez_le_QRCODE_du_v_lo_pour">
+		<span>Scannez le QRCODE du vélo<br/>pour le déverrouiller</span>
+	</div>
+	<svg class="Ellipse_8">
+		<ellipse id="Ellipse_8" rx="36" ry="36" cx="36" cy="36">
+		</ellipse>
+	</svg>
+	<div id="ID12345">
+		<span>12345</span>
+	</div>
+	<svg class="Ellipse_9">
+		<ellipse id="Ellipse_9" rx="36" ry="36" cx="36" cy="36">
+		</ellipse>
+	</svg>
+	<div id="torch">
+		<svg class="Trac__47" viewBox="379.531 76.501 12.976 12.977">
+			<path id="Trac__47" d="M 382.8289794921875 76.65269470214844 L 392.355712890625 86.17974090576172 C 392.5583190917969 86.38218688964844 392.5583190917969 86.71007537841797 392.355712890625 86.91252136230469 L 389.7909240722656 89.47762298583984 L 379.53125 79.21780395507812 L 382.0963439941406 76.65269470214844 C 382.2985229492188 76.45040130615234 382.6268310546875 76.45040130615234 382.8289794921875 76.65269470214844 Z M 382.8289794921875 76.65269470214844">
+			</path>
+		</svg>
+		<svg class="Trac__48" viewBox="341.172 178.098 10.556 10.556">
+			<path id="Trac__48" d="M 351.7274475097656 187.4822082519531 L 347.0378723144531 188.6532287597656 L 341.171875 182.7873840332031 L 342.3430480957031 178.09765625 L 351.7274475097656 187.4822082519531 Z M 351.7274475097656 187.4822082519531">
+			</path>
+		</svg>
+		<svg class="Trac__49" viewBox="82.723 319.707 15.028 15.028">
+			<path id="Trac__49" d="M 91.88427734375 319.70703125 L 82.72265625 328.86865234375 L 88.58863830566406 334.7347717285156 L 97.75025939941406 325.572998046875 L 91.88427734375 319.70703125 Z M 91.15373992919922 324.1065368652344 L 85.28775787353516 329.9674377441406 C 85.19222259521484 330.0667114257812 85.06034851074219 330.1229248046875 84.92249298095703 330.1229248046875 C 84.78463745117188 330.1229248046875 84.65261077880859 330.0667114257812 84.55722045898438 329.9674377441406 C 84.35626983642578 329.7654418945312 84.35626983642578 329.4389038085938 84.55722045898438 329.2367553710938 L 90.41782379150391 323.3758544921875 C 90.6214599609375 323.1737365722656 90.95024871826172 323.1737365722656 91.15373992919922 323.3758544921875 C 91.35453796386719 323.5780029296875 91.35453796386719 323.904541015625 91.15373992919922 324.1065368652344 Z M 92.6151123046875 322.6401062011719 C 92.51957702636719 322.7393798828125 92.3876953125 322.7955932617188 92.24984741210938 322.7955932617188 C 92.11183929443359 322.7955932617188 91.97996520996094 322.7393798828125 91.88427734375 322.6401062011719 C 91.68347930908203 322.4381103515625 91.68347930908203 322.1115417480469 91.88427734375 321.909423828125 L 92.25253295898438 321.5415954589844 C 92.45438385009766 321.3405151367188 92.78092193603516 321.3405151367188 92.98291778564453 321.5415954589844 C 93.18492126464844 321.7452392578125 93.18492126464844 322.0735778808594 92.98291778564453 322.27734375 L 92.6151123046875 322.6401062011719 Z M 92.6151123046875 322.6401062011719">
+			</path>
+		</svg>
+		<svg class="Trac__50" viewBox="-1.747 578.266 8.365 8.365">
+			<path id="Trac__50" d="M 0.7549760937690735 578.265625 L 6.617817401885986 584.1284790039062 L 4.419027328491211 586.3268432617188 C 4.014435768127441 586.7315673828125 3.358357191085815 586.7315673828125 2.953616142272949 586.3268432617188 L -1.443514347076416 581.9298095703125 C -1.848255634307861 581.5249633789062 -1.848255634307861 580.8688354492188 -1.443514347076416 580.464111328125 L 0.7549760937690735 578.265625 Z M 0.7549760937690735 578.265625">
+			</path>
+		</svg>
+		<svg class="Trac__51" viewBox="133.728 322.946 4.645 4.643">
+			<path id="Trac__51" d="M 138.3720855712891 323.9261779785156 L 134.7081909179688 327.5897827148438 L 133.8792572021484 326.7605895996094 C 133.6769714355469 326.5569458007812 133.6769714355469 326.2284545898438 133.8792572021484 326.0247802734375 L 136.8123168945312 323.0971069335938 C 137.0143280029297 322.8960266113281 137.3408813476562 322.8960266113281 137.5428619384766 323.0971069335938 L 138.3720855712891 323.9261779785156 Z M 138.3720855712891 323.9261779785156">
+			</path>
+		</svg>
+		<svg class="Trac__52" viewBox="647.329 -1.552 5.714 5.713">
+			<path id="Trac__52" d="M 647.8472900390625 4.160975933074951 C 647.6376953125 4.160975933074951 647.44873046875 4.034784317016602 647.3685302734375 3.841459274291992 C 647.2883911132812 3.647835731506348 647.3326416015625 3.425056219100952 647.4808349609375 3.276586055755615 L 652.1644287109375 -1.406719088554382 C 652.36767578125 -1.603183746337891 652.6907348632812 -1.600342988967896 652.8907470703125 -1.400588989257812 C 653.0906982421875 -1.200535893440247 653.093505859375 -0.8775802850723267 652.8970947265625 -0.6740882992744446 L 648.2135009765625 4.009366512298584 C 648.1165771484375 4.106552600860596 647.9846801757812 4.160975933074951 647.8472900390625 4.160975933074951 Z M 647.8472900390625 4.160975933074951">
+			</path>
+		</svg>
+		<svg class="Trac__53" viewBox="552.571 -1.314 1.786 3.835">
+			<path id="Trac__53" d="M 553.0897216796875 2.520471096038818 C 553.044189453125 2.52077054977417 552.9990844726562 2.514789581298828 552.9554443359375 2.502977848052979 C 552.822509765625 2.467243194580078 552.7093505859375 2.380524158477783 552.640869140625 2.261209964752197 C 552.5720825195312 2.142343997955322 552.5533447265625 2.000751972198486 552.589111328125 1.867981314659119 L 553.3435668945312 -0.945769727230072 C 553.4241943359375 -1.213852882385254 553.7033081054688 -1.368752002716064 553.9737548828125 -1.29653537273407 C 554.2439575195312 -1.224318981170654 554.407958984375 -0.9502552151679993 554.343994140625 -0.6778361201286316 L 553.5897216796875 2.136513233184814 C 553.5289306640625 2.362880706787109 553.323974609375 2.520172119140625 553.0897216796875 2.520471096038818 Z M 553.0897216796875 2.520471096038818">
+			</path>
+		</svg>
+		<svg class="Trac__54" viewBox="691.415 189.421 4.06 1.847">
+			<path id="Trac__54" d="M 691.9332275390625 191.2676086425781 C 691.6730346679688 191.2674560546875 691.4537353515625 191.0745849609375 691.4197998046875 190.8166656494141 C 691.385986328125 190.5590515136719 691.54833984375 190.3159484863281 691.799560546875 190.2488098144531 L 694.8087158203125 189.4423217773438 C 694.9893188476562 189.3887939453125 695.1847534179688 189.4372253417969 695.3194580078125 189.5692443847656 C 695.4540405273438 189.7012634277344 695.50634765625 189.8960876464844 695.4559936523438 190.0774536132812 C 695.4054565429688 190.2591247558594 695.2604370117188 190.3992156982422 695.0770874023438 190.4431762695312 L 692.0680541992188 191.2498168945312 C 692.0239868164062 191.2616271972656 691.9788208007812 191.2674560546875 691.9332275390625 191.2676086425781 Z M 691.9332275390625 191.2676086425781">
+			</path>
+		</svg>
+	</div>
+	<svg class="Rectangle_9">
+		<rect id="Rectangle_9" rx="0" ry="0" x="0" y="0" width="334" height="2">
+		</rect>
+	</svg>
+</div>
+</body>
+</html>
