@@ -115,6 +115,11 @@ void setup(void) {
   pinMode(GND_PIN, OUTPUT);
   digitalWrite(GND_PIN, LOW);
 
+  servoLock.attach(SERVO_PIN);
+  Serial.print("servo attached to pin #");
+  Serial.println(SERVO_PIN);
+  closeLock();
+
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
@@ -155,12 +160,7 @@ void setup(void) {
 
   server.begin();
   Serial.println("HTTP server started");
-
-  servoLock.attach(SERVO_PIN);
-  Serial.print("servo attached to pin #");
-  Serial.println(SERVO_PIN);
-
-  closeLock();
+  
   sendFeedback("Lock is ready ! ip = " + WiFi.localIP());
 }
 
