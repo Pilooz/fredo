@@ -6,11 +6,14 @@
 
 #define SERVO_PIN 2
 #define GND_PIN 14
+//#define SERVER_IP "192.168.27.1"
+
 const char* ssid = "fredo";
 const char* password = "iotwifipass";
 
 ESP8266WebServer server(80);
 Servo servoLock;
+String gateway = "";
 
 const int led = 13;
 
@@ -21,6 +24,22 @@ void handleRoot() {
   digitalWrite(led, 0);
 }
 
+// Sending a feedback to the server
+void sendFeedback(String message) {
+  WiFiClient client;
+  if (!client.connect(gateway, 9000)) {
+        return;
+    }
+
+    client.print(String("GET ") + "/feedbacklock?message=" + message + " HTTP/1.1\r\n" +
+               "Host: " + gateway + "\r\n" + 
+               "Connection: close\r\n\r\n");
+
+    while(client.available()){
+        String line = client.readStringUntil('\r');
+        Serial.println(line);
+    }
+}
 
 void openLock() {
   Serial.println("Opening the lock");
@@ -33,6 +52,7 @@ void openLock() {
     delay(15);                       // waits 15ms for the servo to reach the position
   }
   servoLock.detach();
+  sendFeedback("Lock has been opened.");
 };
 
 void closeLock() {
@@ -46,6 +66,7 @@ void closeLock() {
   //servoLock.write(0);              // tell servo to go to position in variable 'pos'
   //delay(1000);                       // waits 15ms for the servo to reach the position
   servoLock.detach();
+  sendFeedback("Lock has been closed.");
 };
 
 void handleNotFound() {
@@ -88,6 +109,10 @@ void setup(void) {
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
+  gateway = WiFi.gatewayIP().toString();
+
+  Serial.print("Gateway IP address: ");
+  Serial.println(gateway);
 
   if (MDNS.begin("esp8266")) {
     Serial.println("MDNS responder started");
@@ -115,6 +140,7 @@ void setup(void) {
   Serial.println(SERVO_PIN);
 
   closeLock();
+  sendFeedback("Lock is ready ! ip = " + WiFi.localIP());
 }
 
 void loop(void) {
