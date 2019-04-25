@@ -2,6 +2,7 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
+#include <ESP8266HTTPClient.h>
 #include <Servo.h>
 
 #define SERVO_PIN 2
@@ -26,7 +27,8 @@ void handleRoot() {
 
 // Sending a feedback to the server
 void sendFeedback(String message) {
-  WiFiClient client;
+/*  
+ WiFiClient client;
   if (!client.connect(gateway, 9000)) {
         return;
     }
@@ -39,6 +41,25 @@ void sendFeedback(String message) {
         String line = client.readStringUntil('\r');
         Serial.println(line);
     }
+    */
+
+  Serial.println("Sending a feedback to server...");
+  HTTPClient http;    //Declare object of class HTTPClient
+
+  //GET Data
+  String getData = "?message=" + message ;  //Note "?" added at front
+  String Link = "http://" + gateway + ":9000/feedbacklock" + getData;
+  
+  http.begin(Link);     //Specify request destination
+  
+  int httpCode = http.GET();            //Send the request
+  String payload = http.getString();    //Get the response payload
+
+  Serial.println(httpCode);   //Print HTTP return code
+  Serial.println(payload);    //Print request response payload
+
+  http.end();  //Close connection
+  
 }
 
 void openLock() {
