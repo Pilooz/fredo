@@ -3,7 +3,7 @@ var CONFIG        = {
 	server : 'http://localhost:8080',
   data_dir : './data',
   sav_dir : './data/sav',
-  lock_url : 'http://192.168.27.100/'
+  lock_url : 'http://192.168.27.123/'
 };
 
 var app           = require('express')();
